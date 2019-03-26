@@ -15,12 +15,6 @@ git clone https://github.com/sarpisik/soccer-club-spa.git
 Then
 
 ```
-cd vanilla-boilerplate
-```
-
-And
-
-```
 npm install
 ```
 
