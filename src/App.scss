@@ -415,12 +415,12 @@ $shadow-footer: inset 0 1px 1px rgba(0, 0, 0, 0.075), 2px 0 8px rgba(0, 0, 0, 1)
       margin-top: 100px;
     }
   }
-}
-
-#App {
+  // HEADER
   div.header {
     div.header-top {
       display: none;
+
+      // HEADER CAROUSEL
       div.carousel {
         p {
           margin: 0;
@@ -460,6 +460,8 @@ $shadow-footer: inset 0 1px 1px rgba(0, 0, 0, 0.075), 2px 0 8px rgba(0, 0, 0, 1)
       } /** HEADER CAROUSEL **/
     }
   } /** HEADER **/
+
+  // HOME PAGE CONTENT
   div.content-home {
     padding-top: 75px;
     & > div {
@@ -475,6 +477,8 @@ $shadow-footer: inset 0 1px 1px rgba(0, 0, 0, 0.075), 2px 0 8px rgba(0, 0, 0, 1)
       padding: 0;
       min-height: auto;
     }
+
+    // SLIDE CAROUSEL
     div.carousel {
       a.carousel-control {
         width: 30px;

@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { compose } from 'recompose'
 import { withData } from '../../../Data'
-import { Carousel, Grid, Row, Col, Button } from 'react-bootstrap'
+import { Carousel, Grid, Row, Col } from 'react-bootstrap'
 
 const Slide = ({ data, match, count }) => {
   const newsData = data.getNews(count)
@@ -20,7 +19,7 @@ const Slide = ({ data, match, count }) => {
                 <Col className="text-left" sm={6} lg={4}>
                   <div>{news.title}</div>
                   <div>
-                    <Link to={`${match.url}/news/${news.id}`}>
+                    <Link to={`${match.url}news/${news.id}`}>
                       Click to read...
                     </Link>
                   </div>

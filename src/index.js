@@ -1,16 +1,17 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import ReactDOM from 'react-dom'
-import './index.css'
+import Data, { DataContext } from './Data'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import './index.css'
 
 ReactDOM.render(
-  <Router>
-    <div id="SportClub">
+  <DataContext.Provider value={new Data()}>
+    <BrowserRouter>
       <App />
-    </div>
-  </Router>,
+    </BrowserRouter>
+  </DataContext.Provider>,
   document.getElementById('root')
 )
 

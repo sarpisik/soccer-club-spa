@@ -1,14 +1,14 @@
-import React, {PropTypes} from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
-import ContactIcon from '../../components/ContactIcon';
-import withScrolling from '../../components/withScrolling';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Grid, Col } from 'react-bootstrap'
+import withScrolling from '../../components/withScrolling'
 
-const Footer = ({scrollRef}) => {
+const Footer = ({ scrollRef }) => {
   return (
     <footer>
       <Grid>
         <div className="row" ref={scrollRef}>
-          <Col sm={12}>
+          <Col style={{ textAlign: 'center' }} sm={12}>
             POWERED & DESIGNED BY SARP IŞIK
           </Col>
         </div>
@@ -18,6 +18,7 @@ const Footer = ({scrollRef}) => {
 }
 
 Footer.propTypes = {
-};
+  scrollRef: PropTypes.object.isRequired
+}
 
-export default withScrolling(Footer);
+export default withScrolling(Footer)
