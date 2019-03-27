@@ -17,7 +17,7 @@ const Slide = ({ data, match, count }) => {
             <Grid>
               <Row>
                 <Col className="text-left" sm={6} lg={4}>
-                  <div>{news.title}</div>
+                  <div className="header-title">{news.title}</div>
                   <div>
                     <Link to={`${match.url}news/${news.id}`}>
                       Click to read...

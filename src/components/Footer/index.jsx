@@ -7,10 +7,8 @@ const Footer = () => {
   return (
     <footer>
       <Grid>
-        <div className="row">
-          <Col style={{ textAlign: 'center' }} sm={12}>
-            POWERED & DESIGNED BY SARP IŞIK
-          </Col>
+        <div className="row text-center content-header">
+          <Col sm={12}>POWERED & DESIGNED BY SARP IŞIK</Col>
         </div>
       </Grid>
     </footer>

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { SplitButton, Image, MenuItem } from 'react-bootstrap'
 import HeadNews from '../Header/index'
+import smoothScrollTo from '../smoothScroll'
 import logo from '../../Data/Img/Logos/Muğlaspor.png'
 import * as ROUTES from '../../constants/routes'
 
@@ -79,24 +80,40 @@ export default class NavBar extends PureComponent {
     this.checkTarget()
   }
 
+  onBrandClick = () => {
+    const { history } = this.props
+    const scrollTarget = document.querySelector('.content-home')
+
+    history.location.pathname !== ROUTES.HOME
+      ? history.push(ROUTES.HOME)
+      : smoothScrollTo(scrollTarget, 500)
+  }
+
   render() {
-    const { match } = this.props
     return (
       <div className="header">
+        {/* HEADER-TOP NEWS */}
         {this.isMobileDevice() || <HeadNews count={count} timer={timer} />}
+
+        {/* NAVIGATION BAR */}
         <nav>
           <div className="navigation container text-center">
-            <Link id="brand" to={`${match.url}`}>
+            {/* BRAND LOGO */}
+            <a id="brand" onClick={this.onBrandClick}>
               <button name="brand" className="no-select">
                 <Image responsive src={logo} />
               </button>
-            </Link>
+            </a>
 
+            {/* MENU BUTTON */}
             <input type="checkbox" id="toggle-1" />
             <label htmlFor="toggle-1" className="toggle-menu transform">
               <span className="glyphicon glyphicon-menu-hamburger" />
             </label>
+
+            {/* NAV LINKS */}
             <ul className="links transform">
+              {/* CLUB DROPDOWN */}
               <SplitButton
                 onClick={() => {
                   this.dropdownSelect('club')
@@ -105,7 +122,7 @@ export default class NavBar extends PureComponent {
                 id="basic-nav-dropdown">
                 {this.dropdownLinks.map(this.linkCreator)}
               </SplitButton>
-
+              {/* TEAMS DROPDOWN */}
               <SplitButton
                 onClick={() => {
                   this.dropdownSelect('teams')
@@ -114,7 +131,7 @@ export default class NavBar extends PureComponent {
                 id="basic-nav-dropdown">
                 {this.teamsLinks.map(this.linkCreator)}
               </SplitButton>
-
+              {/* MAIN LINKS */}
               {this.directLinks.map(this.linkCreator)}
             </ul>
           </div>

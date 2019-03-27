@@ -47,7 +47,7 @@ const withScrollling = Component =>
       let screenHeight = window.innerHeight
       return (
         // if return true toggle the className
-        top + height >= 0 && height + screenHeight >= bottom * 1.5
+        top + height >= 0 && height + screenHeight >= bottom * 1.25
       )
     }
 

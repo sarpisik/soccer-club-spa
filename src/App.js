@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import NavBar from './components/Navigation'
 import Home from './components/Home'
 import Footer from './components/Footer'
+import Loading from './components/loadingIndicator'
 import * as ROUTES from './constants/routes'
 import './App.scss'
 
@@ -22,7 +23,7 @@ const Page = ({ match }) => {
   const Component = pages[match.params.pageId]
   return (
     <div className="content">
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <Component />
       </Suspense>
     </div>
@@ -30,6 +31,15 @@ const Page = ({ match }) => {
 }
 
 class App extends Component {
+  componentDidMount = () => {
+    // Remove loading indicator 2s after component mounted
+    const loader = document.querySelector('.intro-loader')
+    setTimeout(() => {
+      loader.parentNode.removeChild(loader)
+      document.body.style = 'overflow: auto'
+    }, 2000)
+  }
+
   render() {
     const { match, history, location } = this.props
 
