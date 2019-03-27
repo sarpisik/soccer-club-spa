@@ -2,16 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { withData } from '../Data'
 import withScrolling from './withScrolling'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Col } from 'react-bootstrap'
 import Thumbnail, { Caption } from './Thumbnail'
 import Header from './Header'
 
-const News = ({
-  data, // withData
-  match, // withRouter
-  count, // prop
-  scrollRef // withScrolling
-}) => {
+const News = ({ data, match, count, scrollRef }) => {
   // Get news
   const newsData = data.getNews(count)
   // Component background

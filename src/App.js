@@ -1,6 +1,7 @@
 import React, { Component, Suspense, lazy } from 'react'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import ScrollToTop from './components/ScrollToTop'
 import NavBar from './components/Navigation'
 import Home from './components/Home'
 import Footer from './components/Footer'
@@ -37,10 +38,12 @@ class App extends Component {
         <NavBar match={match} history={history} />
         <TransitionGroup>
           <CSSTransition key={location.key} timeout={300} classNames="fade">
-            <Switch>
-              <Route exact path={ROUTES.HOME} component={Home} />
-              <Route path={`${ROUTES.HOME}:pageId`} component={Page} />
-            </Switch>
+            <ScrollToTop>
+              <Switch>
+                <Route exact path={ROUTES.HOME} component={Home} />
+                <Route path={`${ROUTES.HOME}:pageId`} component={Page} />
+              </Switch>
+            </ScrollToTop>
           </CSSTransition>
         </TransitionGroup>
         <Footer />

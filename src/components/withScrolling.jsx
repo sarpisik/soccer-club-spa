@@ -1,62 +1,61 @@
-import React from 'react';
+import React from 'react'
 
-const getDimension = (node, dimension) => node.getBoundingClientRect()[dimension];
-
-const withScrollling = Component => (
+const withScrollling = Component =>
   class WithScrolling extends React.Component {
     constructor(props) {
-      super(props);
+      super(props)
       // Create A Ref for the child component
       // Use a Ref instead of setting state
       // to prevent lag on scroll event
-      this.scrollRef = React.createRef();
+      this.scrollRef = React.createRef()
     }
 
     componentDidMount() {
-      this.addEvent();
+      this.addEvent()
     }
 
     componentWillUnmount() {
-      this.removeEvent();
+      this.removeEvent()
     }
 
-    addEvent = _ => window.addEventListener('scroll', this.onScroll);
+    addEvent = () => window.addEventListener('scroll', this.onScroll)
 
-    removeEvent = _ => window.removeEventListener('scroll', this.onScroll);
+    removeEvent = () => window.removeEventListener('scroll', this.onScroll)
 
-    onScroll = _ => {
+    onScroll = () => {
       // Referred Element
-      let node = this.scrollRef.current;
+      let node = this.scrollRef.current
 
       if (node.classList.contains('scrolled')) {
         // Remove event if element scrolled already once
-        this.removeEvent();
+        this.removeEvent()
       } else {
         // Toggle class to trigger animation
         // if the element visible
-        if (this.isVisible(node)) node.classList.add("scrolled");
+        if (this.isVisible(node)) {
+          node.classList.add('scrolled')
+        }
       }
     }
 
     isVisible = node => {
       // Required dimensions of the node
       // to calculate visibility
-      let top = getDimension(node, 'top');
-      let bottom = getDimension(node, 'bottom');
-      let height = getDimension(node, 'height');
-      let screenHeight = window.innerHeight;
+      let top = this.getDimension(node, 'top')
+      let bottom = this.getDimension(node, 'bottom')
+      let height = this.getDimension(node, 'height')
+      let screenHeight = window.innerHeight
       return (
         // if return true toggle the className
-        (top + height >= 0)
-        &&
-        (height + screenHeight >= bottom)
+        top + height >= 0 && height + screenHeight >= bottom * 1.5
       )
     }
+
+    getDimension = (node, dimension) => node.getBoundingClientRect()[dimension]
 
     render() {
       return <Component {...this.props} scrollRef={this.scrollRef} />
     }
   }
-);
 
-export default withScrollling;
+export default withScrollling

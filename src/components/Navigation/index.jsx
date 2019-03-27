@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { SplitButton, Image, MenuItem } from 'react-bootstrap'
-import HeadNews from '../Header'
+import HeadNews from '../Header/index'
 import logo from '../../Data/Img/Logos/Muğlaspor.png'
 import * as ROUTES from '../../constants/routes'
 

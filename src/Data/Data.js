@@ -1,14 +1,23 @@
 const importAll = r => {
-  let images = {};
-  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-  return images;
+  let images = {}
+  r.keys().forEach(item => {
+    images[item.replace('./', '')] = r(item)
+  })
+
+  return images
 }
 
-const images = importAll(require.context('./Img/Gallery', false, /\.(png|jpe?g|svg)$/));
+const images = importAll(
+  require.context('./Img/Gallery', false, /\.(png|jpe?g|svg)$/)
+)
 
-const logos = importAll(require.context('./Img/Logos', false, /\.(png|jpe?g|svg)$/));
+const logos = importAll(
+  require.context('./Img/Logos', false, /\.(png|jpe?g|svg)$/)
+)
 
-const sponsors = importAll(require.context('./Img/Sponsors', false, /\.(png|jpe?g|svg)$/));
+const sponsors = importAll(
+  require.context('./Img/Sponsors', false, /\.(png|jpe?g|svg)$/)
+)
 
 const INITIAL_FIXTURE = [
   {
@@ -55,8 +64,8 @@ const INITIAL_FIXTURE = [
     homeLogo: logos['fake_logo.png'],
     location: 'ZULA ARENA',
     tourment: 'PREMIER LEAGUE'
-  },
-];
+  }
+]
 
 const INITIAL_NEWS = [
   {
@@ -67,8 +76,9 @@ const INITIAL_NEWS = [
     hour: '19',
     minutes: '25',
     title: 'LATEST NEWS LOREM',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
-    img: images['1.jpeg'],
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
+    img: images['1.jpeg']
   },
   {
     id: 'ipsum',
@@ -78,8 +88,9 @@ const INITIAL_NEWS = [
     hour: '19',
     minutes: '25',
     title: 'LATEST NEWS IPSUM',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
-    img: images['2.jpeg'],
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
+    img: images['2.jpeg']
   },
   {
     id: 'dolor',
@@ -89,8 +100,9 @@ const INITIAL_NEWS = [
     hour: '14',
     minutes: '41',
     title: 'LATEST NEWS DOLOR',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
-    img: images['3.jpeg'],
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
+    img: images['3.jpeg']
   },
   {
     id: 'sit',
@@ -100,8 +112,9 @@ const INITIAL_NEWS = [
     hour: '10',
     minutes: '55',
     title: 'LATEST NEWS SIT',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
-    img: images['4.jpg'],
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
+    img: images['4.jpg']
   },
   {
     id: 'amet',
@@ -111,8 +124,9 @@ const INITIAL_NEWS = [
     hour: '15',
     minutes: '25',
     title: 'LATEST NEWS AMET',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
-    img: images['5.jpg'],
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
+    img: images['5.jpg']
   },
   {
     id: 'consectetur',
@@ -122,8 +136,9 @@ const INITIAL_NEWS = [
     hour: '08',
     minutes: '19',
     title: 'LATEST NEWS CONSECTETUR',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
-    img: images['6.jpg'],
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
+    img: images['6.jpg']
   },
   {
     id: 'adipiscing',
@@ -133,8 +148,9 @@ const INITIAL_NEWS = [
     hour: '12',
     minutes: '53',
     title: 'LATEST NEWS ADIPISCING',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
-    img: images['7.jpeg'],
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
+    img: images['7.jpeg']
   },
   {
     id: 'elit',
@@ -144,8 +160,9 @@ const INITIAL_NEWS = [
     hour: '17',
     minutes: '25',
     title: 'LATEST NEWS ELIT',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
-    img: images['8.jpeg'],
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
+    img: images['8.jpeg']
   },
   {
     id: 'suspendisse',
@@ -155,8 +172,9 @@ const INITIAL_NEWS = [
     hour: '10',
     minutes: '09',
     title: 'LATEST NEWS SUSPENDISSE',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
-    img: images['9.jpeg'],
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
+    img: images['9.jpeg']
   },
   {
     id: 'lobortis',
@@ -166,9 +184,10 @@ const INITIAL_NEWS = [
     hour: '10',
     minutes: '25',
     title: 'LATEST NEWS LOBORTIS',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
-    img: images['10.jpeg'],
-  },
+    details:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lacinia diam ut tempor.',
+    img: images['10.jpeg']
+  }
 ]
 
 const INTIAL_PREVIOUS_COMPETITION = [
@@ -226,12 +245,12 @@ const INTIAL_PREVIOUS_COMPETITION = [
     homeLogo: logos['fake_logo.png'],
     location: 'ZULA ARENA',
     tourment: 'PREMIER LEAGUE'
-  },
-];
+  }
+]
 
-const GALLERY = Object.values(images);
+const GALLERY = Object.values(images)
 
-const SPONSORS = Object.values(sponsors);
+const SPONSORS = Object.values(sponsors)
 
 class Data {
   constructor() {
@@ -240,45 +259,48 @@ class Data {
       news: INITIAL_NEWS,
       previousCompetitions: INTIAL_PREVIOUS_COMPETITION,
       gallery: GALLERY,
-      sponsors: SPONSORS,
+      sponsors: SPONSORS
     }
   }
 
-  shortByLatestNews = _ => this.db.news.sort((previous, latest) => {
-    let lDate = new Date(
-      latest.year,
-      latest.month,
-      latest.day,
-      latest.hour,
-      latest.minutes
-    );
-    let pDate = new Date(
-      previous.year,
-      previous.month,
-      previous.day,
-      previous.hour,
-      previous.minutes
-    );
-    return lDate-pDate;
-  });
+  shortByLatestNews = () =>
+    this.db.news.sort((previous, latest) => {
+      let lDate = new Date(
+        latest.year,
+        latest.month,
+        latest.day,
+        latest.hour,
+        latest.minutes
+      )
+      let pDate = new Date(
+        previous.year,
+        previous.month,
+        previous.day,
+        previous.hour,
+        previous.minutes
+      )
+      return lDate - pDate
+    })
 
-  getFixtures = _ => this.db.fixtures;
+  getFixtures = () => this.db.fixtures
 
-  getPreCom = _ => this.db.previousCompetitions;
+  getPreCom = () => this.db.previousCompetitions
 
   getNews = count => {
-    if (count) return this.shortByLatestNews().slice(0, count);
-    return this.shortByLatestNews();
+    if (count) return this.shortByLatestNews().slice(0, count)
+    return this.shortByLatestNews()
   }
-  getSingleNews = news => this.shortByLatestNews().find(data => data.id === news);
+  getSingleNews = news =>
+    this.shortByLatestNews().find(data => data.id === news)
 
-  getIndexOfNews = news => this.shortByLatestNews().findIndex(data => data.id === news);
+  getIndexOfNews = news =>
+    this.shortByLatestNews().findIndex(data => data.id === news)
 
-  getGallery = _ => this.db.gallery;
+  getGallery = () => this.db.gallery
 
-  getSponsors = _ => this.db.sponsors;
+  getSponsors = () => this.db.sponsors
 
-  getImage = image => this.db.gallery[image];
+  getImage = image => this.db.gallery[image]
 }
 
-export default Data;
+export default Data
