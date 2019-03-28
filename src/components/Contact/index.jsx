@@ -62,5 +62,5 @@ const Contact = ({ google }) => (
 )
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCVQc8DUr717YYLG2lAUP_gv4HaPq_PbkQ'
+  apiKey: process.env.REACT_APP_API_KEY
 })(Contact)

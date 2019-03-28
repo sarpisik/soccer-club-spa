@@ -81,8 +81,7 @@ export default class NavBar extends PureComponent {
       ? history.push(`${match.url}club${e !== 'club' ? '/' + e : ''}`)
       : history.push(`${match.url}teams${e !== 'teams' ? '/' + e : ''}`)
 
-    // If this is a mobile browser, toggle menu list.
-    this.isMobile && this.checkTarget()
+    this.checkTarget()
   }
   // Brand Click Event
   onBrandClick = () => {
@@ -98,14 +97,11 @@ export default class NavBar extends PureComponent {
 
   // Mobile Browser Events
   checkTarget = () => {
-    if (this.isMobile) {
-      // Toggle hamburger menu
-      this.checkBox.current.checked = !this.checkBox.current.checked
-      this.toggleScrollLock()
-    }
+    // If this is a mobile browser, toggle menu list.
+    this.checkBox.current.checked = !this.checkBox.current.checked
+    this.isMobile && this.toggleScrollLock()
   }
   toggleScrollLock = e => {
-    console.log('toggled', e)
     // If menu list opened, lock scroll on the background.
     // Else, unlock scroll.
     document.body.style = `overflow: ${

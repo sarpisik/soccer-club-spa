@@ -4,12 +4,10 @@ const getCoordinate = (element, dimension) =>
 const getStartPosition = () => window.pageYOffset
 
 const smoothScroll = (element, scrollTimer) => {
-  console.log(element)
   // Calculate the distance of the target element.
   const distance = getCoordinate(element, 'top')
   // Current position of the user when clicked on a nav link
   const startPosition = getStartPosition()
-  console.log(distance, startPosition)
   let startTime = null
 
   // Run the animation
