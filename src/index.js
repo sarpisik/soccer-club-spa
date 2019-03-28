@@ -8,7 +8,7 @@ import './index.css'
 
 ReactDOM.render(
   <DataContext.Provider value={new Data()}>
-    <BrowserRouter>
+    <BrowserRouter basename="/soccer-club">
       <App />
     </BrowserRouter>
   </DataContext.Provider>,

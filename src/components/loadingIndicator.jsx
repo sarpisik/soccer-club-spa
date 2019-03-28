@@ -1,7 +1,7 @@
 import React from 'react'
 
 const loadingIndicator = () => (
-  <div class="loader-indicator">
+  <div className="loader-indicator">
     <div>
       <div />
       <div />

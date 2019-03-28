@@ -1,7 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Grid, Col } from 'react-bootstrap'
-import withScrolling from '../../components/withScrolling'
 
 const Footer = () => {
   return (

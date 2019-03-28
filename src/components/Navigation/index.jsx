@@ -32,6 +32,22 @@ export default class NavBar extends PureComponent {
       ROUTES.HANDBALL,
       ROUTES.CHESS
     ]
+
+    // this.lockScroll = false
+    this.checkBox = React.createRef()
+
+    this.isMobile =
+      typeof window.orientation !== 'undefined' ||
+      navigator.userAgent.indexOf('IEMobile') !== -1 ||
+      window.innerWidth < 768
+  }
+
+  componentDidMount = () => {
+    this.checkBox.current.addEventListener('change', this.toggleScrollLock)
+  }
+
+  componentWillUnmount = () => {
+    this.checkBox.current.removeEventListener('change', this.toggleScrollLock)
   }
 
   linkCreator = (title, index) => {
@@ -55,45 +71,53 @@ export default class NavBar extends PureComponent {
       </Link>
     )
   }
-
-  // Run HeadNews component if returns false
-  isMobileDevice = () =>
-    typeof window.orientation !== 'undefined' ||
-    navigator.userAgent.indexOf('IEMobile') !== -1 ||
-    window.innerWidth < 768
-
-  // Clicked on a Nav link
-  checkTarget = () => {
-    // Toggle hamburger menu
-    const toggleMenu = document.getElementById('toggle-1')
-    toggleMenu.checked = !toggleMenu.checked
-  }
-
-  // Clicked on dropdown
+  // Dropdown Click Event
   dropdownSelect = e => {
     const { history, match } = this.props
 
+    // If this is Club dropdown, navigate to club page.
+    // Else, navigate to teams page.
     this.dropdownLinks.some(n => n === e) || e === 'club'
       ? history.push(`${match.url}club${e !== 'club' ? '/' + e : ''}`)
       : history.push(`${match.url}teams${e !== 'teams' ? '/' + e : ''}`)
 
-    this.checkTarget()
+    // If this is a mobile browser, toggle menu list.
+    this.isMobile && this.checkTarget()
   }
-
+  // Brand Click Event
   onBrandClick = () => {
     const { history } = this.props
     const scrollTarget = document.querySelector('.content-home')
 
+    // If the current location is not homepage, navigate to home page.
+    // Else, smooth scroll to top.
     history.location.pathname !== ROUTES.HOME
       ? history.push(ROUTES.HOME)
       : smoothScrollTo(scrollTarget, 500)
+  }
+
+  // Mobile Browser Events
+  checkTarget = () => {
+    if (this.isMobile) {
+      // Toggle hamburger menu
+      this.checkBox.current.checked = !this.checkBox.current.checked
+      this.toggleScrollLock()
+    }
+  }
+  toggleScrollLock = e => {
+    console.log('toggled', e)
+    // If menu list opened, lock scroll on the background.
+    // Else, unlock scroll.
+    document.body.style = `overflow: ${
+      this.checkBox.current.checked ? 'hidden' : 'auto'
+    }`
   }
 
   render() {
     return (
       <div className="header">
         {/* HEADER-TOP NEWS */}
-        {this.isMobileDevice() || <HeadNews count={count} timer={timer} />}
+        {this.isMobile || <HeadNews count={count} timer={timer} />}
 
         {/* NAVIGATION BAR */}
         <nav>
@@ -106,7 +130,7 @@ export default class NavBar extends PureComponent {
             </a>
 
             {/* MENU BUTTON */}
-            <input type="checkbox" id="toggle-1" />
+            <input ref={this.checkBox} type="checkbox" id="toggle-1" />
             <label htmlFor="toggle-1" className="toggle-menu transform">
               <span className="glyphicon glyphicon-menu-hamburger" />
             </label>

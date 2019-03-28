@@ -16,7 +16,6 @@ const pages = {
   [ROUTES.GALLERY]: lazy(() => import('./components/Gallery')),
   [ROUTES.STORE]: lazy(() => import('./components/Store')),
   [ROUTES.CONTACT]: lazy(() => import('./components/Contact'))
-  // admin: lazy(() => import('../Admin'))
 }
 
 const Page = ({ match }) => {
@@ -42,7 +41,6 @@ class App extends Component {
 
   render() {
     const { match, history, location } = this.props
-
     return (
       <div id="SportClub">
         <NavBar match={match} history={history} />
@@ -51,7 +49,7 @@ class App extends Component {
             <ScrollToTop>
               <Switch>
                 <Route exact path={ROUTES.HOME} component={Home} />
-                <Route path={`${ROUTES.HOME}:pageId`} component={Page} />
+                <Route path={`${match.path}:pageId`} component={Page} />
               </Switch>
             </ScrollToTop>
           </CSSTransition>

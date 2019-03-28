@@ -15,6 +15,49 @@ $shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 18px rgba(14, 88, 42, 0.6);
 $shadow-bottom: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 2px 8px rgba(0, 0, 0, 1);
 $shadow-footer: inset 0 1px 1px rgba(0, 0, 0, 0.075), 2px 0 8px rgba(0, 0, 0, 1);
 
+// Modal creates a new node
+// so set .button-club class global
+// to style other elements which are
+// created out of react.
+.modal-header {
+  padding: 0 15px;
+  border-bottom-color: $primary;
+  button.close {
+    font-size: 42px;
+    color: $primary;
+    opacity: 1;
+  }
+  @media (min-width: 48rem) {
+    padding: 1rem 15px;
+  }
+}
+.button-club {
+  &,
+  &:active {
+    background-color: $primary;
+    color: $secondary;
+    border-color: $primary;
+    font-weight: bold;
+    transition: all 0.5s ease;
+  }
+  &:hover,
+  &:focus {
+    background-color: $secondary;
+    color: $primary;
+  }
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: $shadow;
+  }
+}
+// .content-header {
+//   background: $secondary;
+//   color: $primary;
+//   box-shadow: $shadow;
+//   margin-bottom: 2rem;
+// }
+
 #SportClub {
   background: #168942;
   background: linear-gradient(to top, #168942 0%, #ffffff 100%);
@@ -132,7 +175,7 @@ $shadow-footer: inset 0 1px 1px rgba(0, 0, 0, 0.075), 2px 0 8px rgba(0, 0, 0, 1)
             position: absolute;
             top: 0;
             width: 55px; // NAV HEIGHT - PADDING
-            z-index: 100;
+            z-index: 99;
             overflow: hidden;
             line-height: 32px;
             padding: 10px 0;
@@ -525,8 +568,8 @@ $shadow-footer: inset 0 1px 1px rgba(0, 0, 0, 0.075), 2px 0 8px rgba(0, 0, 0, 1)
 
   // OTHER PAGES
   div.content {
+    background-color: rgba(0, 0, 0, 0.3);
     margin-top: 75px;
-    //padding-top: 1rem;
     min-height: 100vh;
 
     // LOADING INDICATOR ON LAZY LOAD
@@ -581,6 +624,7 @@ $shadow-footer: inset 0 1px 1px rgba(0, 0, 0, 0.075), 2px 0 8px rgba(0, 0, 0, 1)
 
     // NEWS PAGE
     div.single-news {
+      padding-top: 3rem;
       div.thumbnail {
         div.thumbnail-header {
           max-width: 48rem;
@@ -901,6 +945,9 @@ $shadow-footer: inset 0 1px 1px rgba(0, 0, 0, 0.075), 2px 0 8px rgba(0, 0, 0, 1)
     } /** HOME PAGE **/
     div.content {
       margin-top: 100px;
+      div.single-news {
+        padding-top: 5rem;
+      }
     }
   }
 }
