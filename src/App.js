@@ -1,4 +1,5 @@
 import React, { Component, Suspense, lazy } from 'react'
+import ReactGA from 'react-ga'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import ScrollToTop from './components/ScrollToTop'
@@ -37,6 +38,9 @@ class App extends Component {
       loader.parentNode.removeChild(loader)
       document.body.style = 'overflow: auto'
     }, 2000)
+
+    // The first time record of page
+    ReactGA.pageview(window.location.pathname)
   }
 
   render() {
