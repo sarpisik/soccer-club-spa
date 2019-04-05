@@ -1,4 +1,4 @@
-# Soccer Club Single-Page Application
+# Soccer Club Single-Page Application [![Build Status](https://travis-ci.org/sarpisik/soccer-club-spa.svg?branch=master)](https://travis-ci.org/sarpisik/soccer-club-spa)
 
 This is a react single-page application. Built on create-react-app.
 
