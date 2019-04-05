@@ -1,6 +1,6 @@
 # Soccer Club Single-Page Application
 
-This is a react single-page application. Powered by create-react-app.
+This is a react single-page application. Built on create-react-app.
 
 ## Getting Started
 
