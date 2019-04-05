@@ -119,7 +119,7 @@ export default class NavBar extends PureComponent {
         <nav>
           <div className="navigation container text-center">
             {/* BRAND LOGO */}
-            // eslint-disable-next-line jsx-a11y/anchor-is-valid
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a id="brand" onClick={this.onBrandClick}>
               <button name="brand" className="no-select">
                 <Image responsive src={logo} />
