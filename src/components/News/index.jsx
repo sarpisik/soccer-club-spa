@@ -84,7 +84,7 @@ class singleNews extends PureComponent {
                   </span>
                 </div>
                 <div className="caption">
-                  <img src={news.img} />
+                  <img src={news.img} alt="news" />
                   <h3 style={textColor}>{news.title}</h3>
                   <br />
                   <p style={textColor}>{news.details}</p>
